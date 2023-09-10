@@ -26,9 +26,10 @@ const resetButton = document.querySelector('#reset');
 resetButton.addEventListener('click', resetGrid);
 
 function resetGrid() {
+    let numRows = prompt("How big should the grid be?");
     const grid = document.querySelector('#grid');
     removeAllChildNodes(grid);
-    createGrid();
+    createGrid(numRows, numRows);
     
 }
 
