@@ -9,7 +9,9 @@ for (let j = 0; j < NUM_ROWS; j++){
     grid.appendChild(rowDiv);
     for (let i = 0; i < NUM_BOXES; i++) {
         const div = document.createElement('div');
-        div.className = "grid-box";
+        div.addEventListener('mouseover', () => div.classList.add('hover'));
+        div.classList.add("grid-box");
         rowDiv.appendChild(div);
+
     }
 }
