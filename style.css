@@ -1,7 +1,10 @@
 body {
     font-family: "Roboto";
     display: flex;
-    justify-content: center;}
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
 
 .grid-box {
     margin: 0;
@@ -19,13 +22,18 @@ body {
 }
 
 #grid {
-    align-content: center;
     display: flex;
     gap: 0px;
     width: 600px;
-    height: 600px
+    height: 600px;
+    border-style: solid;
 }
 
 .hover {
     background-color: brown;
+}
+
+#reset {
+    width: 70px;
+    height: 40px;
 }
