@@ -1,9 +1,15 @@
 let NUM_BOXES = 16;
+let NUM_ROWS = 16;
 
 const grid = document.querySelector('#grid');
 
-for (let i = 0; i < NUM_BOXES; i++) {
-    const div = document.createElement('div');
-    div.className = "grid-box";
-    grid.appendChild(div);
+for (let j = 0; j < NUM_ROWS; j++){
+    const rowDiv = document.createElement('div');
+    rowDiv.className = "grid-row";
+    grid.appendChild(rowDiv);
+    for (let i = 0; i < NUM_BOXES; i++) {
+        const div = document.createElement('div');
+        div.className = "grid-box";
+        rowDiv.appendChild(div);
+    }
 }
