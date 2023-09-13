@@ -22,8 +22,8 @@ function createGrid(numBoxes=NUM_BOXES, numRows=NUM_ROWS) {
 
 createGrid(NUM_BOXES, NUM_ROWS);
 
-const resetButton = document.querySelector('#reset');
-resetButton.addEventListener('click', resetGrid);
+const newGridButton = document.querySelector('#newGrid');
+newGridButton.addEventListener('click', resetGrid);
 
 
 function colorDivByHover (div, randomColor) {
