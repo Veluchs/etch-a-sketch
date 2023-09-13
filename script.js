@@ -1,18 +1,17 @@
-let NUM_BOXES = 16;
 let NUM_ROWS = 16;
 
 let randomColor = false;
 let enableDraw = false;
 
 
-function createGrid(numBoxes=NUM_BOXES, numRows=NUM_ROWS) {
+function createGrid(numRows=NUM_ROWS) {
     const grid = document.querySelector('#grid');
 
     for (let j = 0; j < numRows; j++){
         const rowDiv = document.createElement('div');
         rowDiv.className = "grid-row";
         grid.appendChild(rowDiv);
-        for (let i = 0; i < numBoxes; i++) {
+        for (let i = 0; i < numRows; i++) {
             const div = document.createElement('div');
             div.addEventListener('mouseover', colorDivByHover);
             div.addEventListener('mousedown', colorDivByHover);
@@ -42,7 +41,7 @@ function createNewGrid() {
     let numRows = prompt("How big should the grid be?");
     const grid = document.querySelector('#grid');
     removeAllChildNodes(grid);
-    createGrid(numRows, numRows);
+    createGrid(numRows);
     NUM_ROWS = numRows;
 }
 
@@ -78,7 +77,7 @@ grid.addEventListener('mousedown', () => enableDraw = true);
 grid.addEventListener('mouseup', () => enableDraw = false);
 
 
-createGrid(NUM_BOXES, NUM_ROWS);
+createGrid(NUM_ROWS);
 
 const newGridButton = document.querySelector('#newGrid');
 newGridButton.addEventListener('click', createNewGrid);
