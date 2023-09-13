@@ -1,12 +1,10 @@
-
-
 body {
     font-family: "Roboto";
     display: flex;
     align-items: center;
     flex-direction: column;
     gap: 10px;
-    background-color: #F4E0B9;
+    background-color: #4E6E81;
 }
 
 .grid-box {
@@ -16,7 +14,7 @@ body {
     border-width: 0.8px;
     flex: 1;
     background-color: white;
-    border-color: #7D7463;
+    border-color: #2E3840;
 }
 
 .grid-row {
@@ -29,34 +27,58 @@ body {
 #grid {
     display: flex;
     gap: 0px;
-    width: 500px;
-    height: 500px;
+    width: 400px;
+    height: 400px;
     border-style: solid;
     border-width: 2.8px;
-    border-color: #7D7463;
+    border-color: #2E3840;
     padding: 0;
 }
 
 
-#newGrid {
-    width: 70px;
-    height: 40px;
+#header {
+    margin-top: 5px;
+    font-family: 'Rubik Mono One';
+    font-size: 60px;
+    color: #F9DBBB;
 }
-#reset {
-    width: 70px;
-    height: 40px;
+
+#etchASketch {
+    display: flex;
+    gap: 20px;
+    width: 950px;
+    align-items: center;
+    flex-direction: column;
+    background-color: #FE0000;
+    border-radius: 120px;
+    padding: 20px;
+    box-shadow: 10px 10px #2E3840;
 }
 
 
 #button-list {
+    width: 800px;
     display: flex;
     gap: 10px;
+    justify-content: space-between;
     
 }
 
-#header {
-    margin-top: 40px;
-    font-family: 'Rubik Mono One';
-    font-size: 75px;
-    color: #FE0000;
+
+button {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    background-color: white;
+    border-color: #2E3840;
+    box-shadow: 2px 2px #2e38404d;
+}
+
+button:hover {
+    background-color: #F9DBBB;
+}
+
+.corner {
+    transform: scale(1.5);
+    translate: 0 -35px;
 }
