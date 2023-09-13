@@ -38,7 +38,7 @@ function colorDivByHover (event) {
 }
 
 
-function resetGrid() {
+function createNewGrid() {
     let numRows = prompt("How big should the grid be?");
     const grid = document.querySelector('#grid');
     removeAllChildNodes(grid);
@@ -81,7 +81,7 @@ grid.addEventListener('mouseup', () => enableDraw = false);
 createGrid(NUM_BOXES, NUM_ROWS);
 
 const newGridButton = document.querySelector('#newGrid');
-newGridButton.addEventListener('click', resetGrid);
+newGridButton.addEventListener('click', createNewGrid);
 
 
 const resetButton = document.querySelector('#reset');
