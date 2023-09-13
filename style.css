@@ -36,6 +36,11 @@ body {
     width: 70px;
     height: 40px;
 }
+#reset {
+    width: 70px;
+    height: 40px;
+}
+
 
 #header {
     display: flex;

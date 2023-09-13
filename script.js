@@ -40,7 +40,7 @@ function resetGrid() {
     const grid = document.querySelector('#grid');
     removeAllChildNodes(grid);
     createGrid(numRows, numRows);
-    
+    NUM_ROWS = numRows;
 }
 
 function removeAllChildNodes(parent) {
@@ -48,6 +48,16 @@ function removeAllChildNodes(parent) {
         parent.removeChild(parent.firstChild);
     }
 }
+
+
+function resetGridColor(grid, numRows) {
+    removeAllChildNodes(grid);
+    createGrid(numRows, numRows);
+}
+
+const resetButton = document.querySelector('#reset');
+resetButton.addEventListener('click', () => resetGridColor(grid, NUM_ROWS));
+
 
 const randomColorButton = document.querySelector('#randomColor');
 randomColorButton.addEventListener('click', () => {
