@@ -20,11 +20,6 @@ function createGrid(numBoxes=NUM_BOXES, numRows=NUM_ROWS) {
     }
 }
 
-createGrid(NUM_BOXES, NUM_ROWS);
-
-const newGridButton = document.querySelector('#newGrid');
-newGridButton.addEventListener('click', resetGrid);
-
 
 function colorDivByHover (div, randomColor) {
     if (randomColor) {
@@ -35,6 +30,7 @@ function colorDivByHover (div, randomColor) {
     }
 }
 
+
 function resetGrid() {
     let numRows = prompt("How big should the grid be?");
     const grid = document.querySelector('#grid');
@@ -42,6 +38,7 @@ function resetGrid() {
     createGrid(numRows, numRows);
     NUM_ROWS = numRows;
 }
+
 
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
@@ -54,6 +51,25 @@ function resetGridColor(grid, numRows) {
     removeAllChildNodes(grid);
     createGrid(numRows, numRows);
 }
+
+
+function generateRandomColor() {
+    let maxVal = 0xFFFFFF; // 16777215
+    let randomNumber = Math.random() * maxVal;
+    randomNumber = Math.floor(randomNumber);
+    let randColor = randomNumber.toString(16);
+    randColor = randColor.padStart(6, '0');   
+
+    return '#' + randColor.toUpperCase();
+}
+
+
+
+createGrid(NUM_BOXES, NUM_ROWS);
+
+const newGridButton = document.querySelector('#newGrid');
+newGridButton.addEventListener('click', resetGrid);
+
 
 const resetButton = document.querySelector('#reset');
 resetButton.addEventListener('click', () => resetGridColor(grid, NUM_ROWS));
@@ -71,14 +87,3 @@ randomColorButton.addEventListener('click', () => {
         randomColorButton.style.removeProperty('background-Color');
     }
 });
-
-function generateRandomColor() {
-    let maxVal = 0xFFFFFF; // 16777215
-    let randomNumber = Math.random() * maxVal;
-    randomNumber = Math.floor(randomNumber);
-    let randColor = randomNumber.toString(16);
-    randColor = randColor.padStart(6, '0');   
-
-    return '#' + randColor.toUpperCase();
-
-}
