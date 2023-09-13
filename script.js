@@ -28,7 +28,7 @@ resetButton.addEventListener('click', resetGrid);
 
 function colorDivByHover (div, randomColor) {
     if (randomColor) {
-        div.style.backgroundColor = '#'+generateRandomColor();
+        div.style.backgroundColor = generateRandomColor();
     }
     else {
         div.style.backgroundColor = 'brown';
@@ -49,13 +49,16 @@ function removeAllChildNodes(parent) {
     }
 }
 
-const checkbox = document.querySelector('#checkbox');
-checkbox.addEventListener('change', () => {
-    if (checkbox.checked) {
+const randomColorButton = document.querySelector('#randomColor');
+randomColorButton.addEventListener('click', () => {
+    console.log(randomColor);
+    if (randomColor == false) {
         randomColor = true;
+        randomColorButton.style.backgroundColor = generateRandomColor();
     }
     else {
         randomColor = false;
+        randomColorButton.style.removeProperty('background-Color');
     }
 });
 
@@ -66,6 +69,6 @@ function generateRandomColor() {
     let randColor = randomNumber.toString(16);
     randColor = randColor.padStart(6, '0');   
 
-    return randColor.toUpperCase();
+    return '#' + randColor.toUpperCase();
 
 }
