@@ -1,6 +1,8 @@
 let NUM_BOXES = 16;
 let NUM_ROWS = 16;
 
+let randomColor = false;
+
 
 function createGrid(numBoxes=NUM_BOXES, numRows=NUM_ROWS) {
     const grid = document.querySelector('#grid');
@@ -11,7 +13,7 @@ function createGrid(numBoxes=NUM_BOXES, numRows=NUM_ROWS) {
         grid.appendChild(rowDiv);
         for (let i = 0; i < numBoxes; i++) {
             const div = document.createElement('div');
-            div.addEventListener('mouseover', () => div.classList.add('hover'));
+            div.addEventListener('mouseover', () => colorDivByHover(div, randomColor));
             div.classList.add("grid-box");
             rowDiv.appendChild(div);
         }
@@ -20,10 +22,18 @@ function createGrid(numBoxes=NUM_BOXES, numRows=NUM_ROWS) {
 
 createGrid(NUM_BOXES, NUM_ROWS);
 
-
-
 const resetButton = document.querySelector('#reset');
 resetButton.addEventListener('click', resetGrid);
+
+
+function colorDivByHover (div, randomColor) {
+    if (randomColor) {
+        div.style.backgroundColor = '#'+generateRandomColor();
+    }
+    else {
+        div.style.backgroundColor = 'brown';
+    }
+}
 
 function resetGrid() {
     let numRows = prompt("How big should the grid be?");
@@ -37,4 +47,25 @@ function removeAllChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
+}
+
+const checkbox = document.querySelector('#checkbox');
+checkbox.addEventListener('change', () => {
+    if (checkbox.checked) {
+        randomColor = true;
+    }
+    else {
+        randomColor = false;
+    }
+});
+
+function generateRandomColor() {
+    let maxVal = 0xFFFFFF; // 16777215
+    let randomNumber = Math.random() * maxVal;
+    randomNumber = Math.floor(randomNumber);
+    let randColor = randomNumber.toString(16);
+    randColor = randColor.padStart(6, '0');   
+
+    return randColor.toUpperCase();
+
 }
