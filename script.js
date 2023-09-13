@@ -1,5 +1,7 @@
 let NUM_ROWS = 16;
 
+let COLOR = '#A8A196';
+
 let randomColor = false;
 let enableDraw = false;
 
@@ -31,7 +33,7 @@ function colorDivByHover (event) {
         event.target.style.backgroundColor = generateRandomColor();
     }
     else {
-        event.target.style.backgroundColor = 'brown';
+        event.target.style.backgroundColor = COLOR;
     }
     
 }

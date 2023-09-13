@@ -1,17 +1,22 @@
+
+
 body {
     font-family: "Roboto";
     display: flex;
     align-items: center;
     flex-direction: column;
     gap: 10px;
+    background-color: #F4E0B9;
 }
 
 .grid-box {
     margin: 0;
     padding: 0;
     border-style: solid;
-    border-width: 1px;
+    border-width: 0.8px;
     flex: 1;
+    background-color: white;
+    border-color: #7D7463;
 }
 
 .grid-row {
@@ -24,10 +29,11 @@ body {
 #grid {
     display: flex;
     gap: 0px;
-    width: 600px;
-    height: 600px;
+    width: 500px;
+    height: 500px;
     border-style: solid;
     border-width: 2.8px;
+    border-color: #7D7463;
     padding: 0;
 }
 
@@ -48,3 +54,9 @@ body {
     
 }
 
+#header {
+    margin-top: 40px;
+    font-family: 'Rubik Mono One';
+    font-size: 75px;
+    color: #FE0000;
+}
