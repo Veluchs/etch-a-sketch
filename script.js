@@ -2,6 +2,7 @@ let NUM_BOXES = 16;
 let NUM_ROWS = 16;
 
 let randomColor = false;
+let enableDraw = false;
 
 
 function createGrid(numBoxes=NUM_BOXES, numRows=NUM_ROWS) {
@@ -13,7 +14,8 @@ function createGrid(numBoxes=NUM_BOXES, numRows=NUM_ROWS) {
         grid.appendChild(rowDiv);
         for (let i = 0; i < numBoxes; i++) {
             const div = document.createElement('div');
-            div.addEventListener('mouseover', () => colorDivByHover(div, randomColor));
+            div.addEventListener('mouseover', colorDivByHover);
+            div.addEventListener('mousedown', colorDivByHover);
             div.classList.add("grid-box");
             rowDiv.appendChild(div);
         }
@@ -21,13 +23,18 @@ function createGrid(numBoxes=NUM_BOXES, numRows=NUM_ROWS) {
 }
 
 
-function colorDivByHover (div, randomColor) {
+function colorDivByHover (event) {
+    if (event.type == 'mouseover' && enableDraw == false) {
+        return
+    }
+
     if (randomColor) {
-        div.style.backgroundColor = generateRandomColor();
+        event.target.style.backgroundColor = generateRandomColor();
     }
     else {
-        div.style.backgroundColor = 'brown';
+        event.target.style.backgroundColor = 'brown';
     }
+    
 }
 
 
@@ -63,6 +70,12 @@ function generateRandomColor() {
     return '#' + randColor.toUpperCase();
 }
 
+
+
+
+const grid = document.querySelector('#grid');
+grid.addEventListener('mousedown', () => enableDraw = true);
+grid.addEventListener('mouseup', () => enableDraw = false);
 
 
 createGrid(NUM_BOXES, NUM_ROWS);
